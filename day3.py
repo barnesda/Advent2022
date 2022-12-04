@@ -327,17 +327,17 @@ for idx, ruck in enumerate(rs.split("\n"), start=1):
 total1 = 0
 for item in shared:
     if 'a' <= item <= 'z':
-        total += (ord(item) - ord('a')) + 1
+        total1 += (ord(item) - ord('a')) + 1
     elif 'A' <= item <= 'Z':
-        total += (ord(item) - ord('A')) + 27
+        total1 += (ord(item) - ord('A')) + 27
 
 print("pt1", total1)
 
 total2 = 0
 for item in badges:
     if 'a' <= item <= 'z':
-        total += (ord(item) - ord('a')) + 1
+        total2 += (ord(item) - ord('a')) + 1
     elif 'A' <= item <= 'Z':
-        total += (ord(item) - ord('A')) + 27
+        total2 += (ord(item) - ord('A')) + 27
 
 print("pt2", total2)
