@@ -3,10 +3,6 @@ import numpy as np
 with open("input/day9.txt") as f:
     inp = f.read().splitlines()
 
-    
-head = np.array([0, 0])
-tail = np.array([0, 0])
-
 long_rope = [np.array([0, 0]) for _ in range(10)]
 
 D_MAP = {
@@ -24,16 +20,6 @@ for line in inp:
     n = int(n)
 
     for s in range(n):
-        # pt1
-        head += D_MAP[d]
-        diff = head - tail
-
-        if diff @ diff > 2:
-            tail += np.sign(diff)
-
-        visited1.add(tuple(tail))
-
-        # pt2
         long_rope[0] += D_MAP[d]
         for lead, lag in zip(long_rope, long_rope[1:]):
             diff = lead - lag
@@ -41,6 +27,7 @@ for line in inp:
             if diff @ diff > 2:
                 lag += np.sign(diff)
 
+        visited1.add(tuple(long_rope[1]))
         visited2.add(tuple(long_rope[-1]))
 
 
